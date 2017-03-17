@@ -2,13 +2,9 @@ language: csharp
 mono: none
 dotnet: 1.0.0-preview2-003131
 solution: DevRocks.Travis.sln
-before_install:
-  - sudo apt-get install nunit-console
-before_script:
+install:
   - nuget restore DevRocks.Travis.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release DevRocks.Travis.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe Src/DevRocks.Travis.Tests/bin/Release/DevRocks.Travis.Tests.dll
-after_script:
-  - nunit-console Src/OctoberNet.Test/bin/Release/OctoberNet.Test.dll
