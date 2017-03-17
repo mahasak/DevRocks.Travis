@@ -17,8 +17,8 @@ addons:
     - dotnet-dev-1.0.1
 
 before_script:
-  dotnet restore DevRocks.Travis.sln
+  - dotnet restore DevRocks.Travis.sln
 
 script:
-  dotnet build DevRocks.Travis.sln
-  dotnet test Src/DevRocks.Travis.Tests/DevRocks.Travis.Tests.csproj
+  - dotnet build DevRocks.Travis.sln
+  - dotnet test Src/DevRocks.Travis.Tests/DevRocks.Travis.Tests.csproj
